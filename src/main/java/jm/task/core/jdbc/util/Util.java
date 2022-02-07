@@ -14,7 +14,6 @@ public class Util {
         Connection connection = null;
         try {
             connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
-            Statement statement = connection.createStatement();
             System.out.println("Соединение с БД установлено!");
         } catch (SQLException e) {
             System.out.println("Соединение с БД установить не удалось!");
