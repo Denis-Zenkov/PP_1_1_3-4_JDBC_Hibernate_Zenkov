@@ -48,10 +48,9 @@ public class UserDaoJDBCImpl implements UserDao {
             pStatement.setString(2, lastName);
             pStatement.setInt(3, age);
             pStatement.executeUpdate();
-            System.out.println("Добавление в БД произошло успешно!");
             System.out.println("User c именем: " + name + " добавлен в базу!");
         } catch (SQLException e) {
-            System.out.println("ДОбавление в БД не произошло!");
+            System.out.println("User c именем: " + name + " в базу добавить не удалось!");
             e.printStackTrace();
         }
     }
@@ -70,7 +69,6 @@ public class UserDaoJDBCImpl implements UserDao {
         List<User> resList = new ArrayList<>();
         try (Statement statement = connection.createStatement()) {
             ResultSet resultSet = statement.executeQuery("SELECT * FROM table_users");
-            System.out.println("Userы получены!");
             while (resultSet.next()) {
                 User user = new User();
                 user.setId(resultSet.getLong("id"));
