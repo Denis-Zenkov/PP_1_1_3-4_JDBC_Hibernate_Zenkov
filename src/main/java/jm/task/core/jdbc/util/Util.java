@@ -17,9 +17,9 @@ public class Util {
 
     public static SessionFactory sessionFactory;
 
-    public static SessionFactory getSessionFactory(){
+    public static SessionFactory getSessionFactory() {
         if (sessionFactory == null) {
-            try{
+            try {
                 Configuration configuration = new Configuration();
 
                 Properties properties = new Properties();
@@ -35,11 +35,11 @@ public class Util {
 
                 ServiceRegistry serviceRegistry =
                         new StandardServiceRegistryBuilder()
-                        .applySettings(configuration.getProperties())
-                        .build();
+                                .applySettings(configuration.getProperties())
+                                .build();
                 sessionFactory = configuration.buildSessionFactory(serviceRegistry);
                 System.out.println("Подключение произведено!");
-            } catch (Exception e){
+            } catch (Exception e) {
                 System.out.println("Нет подключения!");
                 e.printStackTrace();
             }
@@ -53,7 +53,7 @@ public class Util {
     private static String USERNAME = "root";
     private static String PASSWORD = "MainAdminZenkov";
 
-    public static Connection getConnect(){
+    public static Connection getConnect() {
         Connection connection = null;
         try {
             connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
